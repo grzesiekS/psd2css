@@ -1,8 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;700;800&display=swap");
 /* CLOROS */
+/* BUTTON */
 *, *::before, *::after { box-sizing: border-box; }
 
-body { font-family: "Rubik", sans-serif; }
+body { font-family: "Rubik", sans-serif; color: #2D3236; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document ========================================================================== */
@@ -112,3 +113,81 @@ template { display: none; }
 
 /** Add the correct display in IE 10. */
 [hidden] { display: none; }
+
+.container { max-width: 1120px; margin: 0 auto; }
+
+.flexbox { display: flex; }
+
+.flexbox .col { flex: auto 1; }
+
+.flexbox .col--3 { flex: 33% 1; }
+
+.logo { display: inline-block; position: relative; margin: 10px; }
+
+.logo__element { display: inline-block; position: relative; font-size: 28px; font-weight: 800; color: #28A9E0; }
+
+.logo__element--left { left: 5px; }
+
+.logo__element--left::after { content: "<"; font-weight: 300; position: absolute; color: #fff; top: -4px; left: 1px; }
+
+.logo__element--right { right: 5px; }
+
+.logo__element--right::after { content: ">"; font-weight: 300; position: absolute; color: #fff; top: -4px; left: 1px; }
+
+.logo__polygon { display: inline-block; position: relative; }
+
+.logo__polygon::before { content: ''; top: -15px; position: absolute; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+
+.logo__polygon::after { content: ''; top: 15px; left: 50%; transform: translate(-50%); position: absolute; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+
+.logo__polygon_element { position: relative; top: 50%; transform: translateY(-50%); display: inline-block; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+
+.button { background-color: transparent; border: none; font-size: 24px; display: inline-block; padding: 0; border-radius: 25px; transition: background-color 1s; }
+
+.button svg { margin: 9px 15px; display: inline-block; vertical-align: middle; }
+
+.button:hover { cursor: pointer; background-color: #28a9e030; }
+
+.button:focus { outline: none; }
+
+.button--left { position: absolute; top: 50%; left: 0; transform: translateY(-50%); }
+
+.button--right { position: absolute; top: 50%; right: 0; transform: translateY(-50%); }
+
+.title { text-align: center; font-weight: 300; font-size: 40px; line-height: 52px; margin: 0 0 15px 0; }
+
+.title--white { color: #fff; }
+
+.title--subtitle { font-size: 30px; line-height: 30px; margin-top: 36px; }
+
+.description { text-align: center; font-weight: 300; font-size: 20px; line-height: 32px; margin: 0; }
+
+.description--white { color: #fff; }
+
+.slider { position: relative; padding: 60px 0; }
+
+.slider__container { margin: 0 70px; }
+
+.slider__element { display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
+
+.slider__element--active { display: block; margin-right: 20px; }
+
+.slider__element--active:last-child { margin-right: 0; }
+
+.slider__title { margin: 20px 0 18px 0; font-weight: 300; font-size: 20px; line-height: 24px; }
+
+.slider__desc { margin: 0 0 18px 0; font-weight: 300; font-size: 15px; line-height: 24px; color: #808080; }
+
+.slider__icon { font-size: 42px; color: #BABFC6; }
+
+.mainHeader { padding: 32px 0; }
+
+.mainHeader__title { display: inline-block; position: relative; margin: 0; top: -5px; font-weight: 700; }
+
+.mainHeader__title--lightBlue { color: #28A9E0; }
+
+.splash { background-color: #215398; padding: 60px 0; position: relative; }
+
+.splash::after { content: ''; position: absolute; height: 32px; width: 32px; border-radius: 25px; background-color: #FF3859; bottom: -16px; left: 50%; transform: translate(-50%); }
+
+.mainFooter { padding: 60px 0; }
