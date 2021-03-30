@@ -7,17 +7,21 @@ body {
 }
 
 .logo {
+  display: inline-block;
   position: relative;
+  margin: 10px;
 }
 
 .logo__element {
   display: inline-block;
   position: relative;
-  font-size: 34px;
+  font-size: 28px;
   font-weight: 800;
   color: $light-blue;
   
-  &--left, &--right {
+  &--left {
+    left: 5px;
+
     &::after {
       content: "<";
       font-weight: 300;
@@ -29,8 +33,53 @@ body {
   }
 
   &--right {
+    right: 5px;
+
     &::after {
       content: ">";
+      font-weight: 300;
+      position: absolute;
+      color: $white;
+      top: -4px;
+      left: 1px;
     }
+  }
+}
+
+.logo__polygon {
+  display: inline-block;
+  position: relative;
+
+  &--middle {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    height: 10px;
+    width: 20px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: $dark-blue;
+  }
+
+  &::before {
+    content: '';
+    top: -15px;
+    position: absolute;
+    height: 10px;
+    width: 20px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: $dark-blue;
+  }
+
+  &::after {
+    content: '';
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%);
+    position: absolute;
+    height: 10px;
+    width: 20px;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    background: $dark-blue;
   }
 }
