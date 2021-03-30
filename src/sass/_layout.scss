@@ -14,3 +14,9 @@
     }
   }
 }
+
+@media (max-width: 950px) {
+  .flexbox {
+    flex-direction: column;
+  }
+}
