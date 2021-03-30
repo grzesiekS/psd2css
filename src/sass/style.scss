@@ -1,4 +1,6 @@
-@import "./partials/settings";
+@import "settings";
 
-@import "./partials/global";
-@import "./partials/normalize";
+@import "global";
+@import "normalize";
+
+@import "./components/logo";
