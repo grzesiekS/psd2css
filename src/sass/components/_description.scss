@@ -1,0 +1,11 @@
+.description {
+  text-align: center;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  margin: 0;
+
+  &--white {
+    color: $white;
+  }
+}
