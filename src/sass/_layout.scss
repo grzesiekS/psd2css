@@ -2,3 +2,15 @@
   max-width: 1120px;
   margin: 0 auto;
 }
+
+.flexbox {
+  display: flex;
+
+  .col {
+    flex: auto 1;
+
+    &--3 {
+      flex: 33% 1;
+    }
+  }
+}
