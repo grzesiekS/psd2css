@@ -1,0 +1,15 @@
+.mainHeader {
+  padding: 32px 0;
+}
+
+.mainHeader__title {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  top: -5px;
+  font-weight: 700;
+
+  &--lightBlue {
+    color: $light-blue;
+  }
+}
