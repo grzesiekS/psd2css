@@ -1,3 +1,36 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
+body {
+  font-family: $main-font;
+}
+
+.logo {
+  position: relative;
+}
+
+.logo__element {
+  display: inline-block;
+  position: relative;
+  font-size: 34px;
+  font-weight: 800;
+  color: $light-blue;
+  
+  &--left, &--right {
+    &::after {
+      content: "<";
+      font-weight: 300;
+      position: absolute;
+      color: $white;
+      top: -4px;
+      left: 1px;
+    }
+  }
+
+  &--right {
+    &::after {
+      content: ">";
+    }
+  }
+}
