@@ -42,17 +42,6 @@
   display: inline-block;
   position: relative;
 
-  &--middle {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    display: inline-block;
-    height: 10px;
-    width: 20px;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    background: $dark-blue;
-  }
-
   &::before {
     content: '';
     top: -15px;
@@ -74,4 +63,15 @@
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     background: $dark-blue;
   }
+}
+
+.logo__polygonElement {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+  height: 10px;
+  width: 20px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  background: $dark-blue;
 }

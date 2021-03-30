@@ -1,0 +1,35 @@
+.splash {
+  background-color: $dark-blue;
+  padding: 60px 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    border-radius: 25px;
+    background-color: $magenta;
+    bottom: -16px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
+
+.splash__title {
+  color: $white;
+  text-align: center;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 52px;
+  margin: 0 0 15px 0;
+}
+
+.splash__subtitle {
+  text-align: center;
+  color: $white;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 32px;
+  margin: 0;
+}
