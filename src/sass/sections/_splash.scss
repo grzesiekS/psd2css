@@ -39,11 +39,11 @@
   padding: 60px 0;
 }
 
-.splash__sliderContainer {
+.splash__slider_container {
   margin: 0 70px;
 }
 
-.splash__sliderElement {
+.splash__slider_element {
   display: none;
   padding: 15px 30px 30px;
   text-align: center;
@@ -59,20 +59,20 @@
   }
 }
 
-.splash__sliderTitle {
+.splash__slider_title {
   margin: 20px 0 18px 0;
   font-weight: 300;
   font-size: 20px;
   line-height: 24px;
 }
 
-.splash__sliderDesc {
+.splash__slider_desc {
   margin: 0 0 18px 0;
   font-weight: 300;
   font-size: 15px;
   line-height: 24px;
 }
 
-.splash__sliderIcon {
+.splash__slider_icon {
   font-size: 42px;
 }
