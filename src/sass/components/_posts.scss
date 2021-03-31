@@ -22,6 +22,14 @@
   &--margin-0 {
     margin-left: 0;
   }
+
+  p {
+    margin: 0 0 18px 0;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 24px;
+    color: $gray-text;
+  }
 }
 
 .posts__title {
