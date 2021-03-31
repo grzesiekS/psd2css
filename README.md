@@ -1,10 +1,10 @@
 # psd2css
 
-##Init project
+## Init project
 npm install
 
-##Run project in localhost
+## Run project in localhost
 npm run watch
 
-##wordpress theme
+## Wordpress theme
 In folder psd2css-wordpress
