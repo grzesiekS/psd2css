@@ -8,10 +8,10 @@ class Splash {
     thisSplash.handleWindowInnerWidthCheck();
     thisSplash.setSliderPostsInPage(window.innerWidth);
     thisSplash.setSliderPostsPageCount();
+    thisSplash.handleRightButtonAction();
+    thisSplash.handleLeftButtonAction();
 
     thisSplash.sliderCurrentPage = 0;
-
-    console.log(thisSplash.sliderPostsPageCount);
   }
 
   handleWindowInnerWidthCheck() {
@@ -35,6 +35,63 @@ class Splash {
     thisSplash.sliderPostsPageCount = Math.ceil(thisSplash.dom.splashSliderElements.length/thisSplash.sliderPostsInPage);
   }
 
+  handleRightButtonAction() {
+    const thisSplash = this;
+
+    thisSplash.dom.rightButton.addEventListener('click', event => {
+      event.preventDefault();
+      
+      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElementsActive);
+
+      thisSplash.removeActiveClassFromPosts(currentActivePosts);
+      thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
+      
+      if(thisSplash.sliderCurrentPage < thisSplash.sliderPostsPageCount - 1) thisSplash.sliderCurrentPage++;
+
+      const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+
+      thisSplash.addActiveClassToPosts(newActivePosts);
+      thisSplash.addMarginClassToFirstPost(newActivePosts);
+
+    });
+  }
+
+  handleLeftButtonAction() {
+    const thisSplash = this;
+
+    thisSplash.dom.leftButton.addEventListener('click', event => {
+      event.preventDefault();
+      console.log('test');
+    });
+  }
+
+  getPosts(posts) {
+    const thisSplash = this;
+    return Array.from(posts)
+      .splice(thisSplash.sliderCurrentPage*thisSplash.sliderPostsInPage, (thisSplash.sliderCurrentPage + 1)*thisSplash.sliderPostsInPage);
+  }
+
+  removeActiveClassFromPosts(postsList) {
+    for(const post of postsList) {
+      post.classList.remove(select.splashComponent.activeClassSlider);
+    }
+  }
+
+  addActiveClassToPosts(postsList) {
+    for(const post of postsList) {
+      post.classList.add(select.splashComponent.activeClassSlider);
+    }
+  }
+
+  removeMarginClassFromFirstPost(postsList) {
+    if (postsList.length > 0) postsList[0].classList.remove(select.splashComponent.marginClassSlider);
+  
+  }
+
+  addMarginClassToFirstPost(postsList) {
+    postsList[0].classList.add(select.splashComponent.marginClassSlider);
+  }
+
   getElement(element) {
     const thisSplash = this;
 
@@ -42,7 +99,8 @@ class Splash {
     thisSplash.dom.wrapper = element;
     thisSplash.dom.splashSliderElements = thisSplash.dom.wrapper.querySelectorAll(select.splashComponent.splashSliderElements);
     thisSplash.dom.splashSliderElementsActive = thisSplash.dom.wrapper.querySelectorAll(select.splashComponent.splashSliderElementsActive);
-    console.log(thisSplash.dom.splashSliderElementsActive);
+    thisSplash.dom.leftButton = thisSplash.dom.wrapper.querySelector(select.splashComponent.splashButtonLeft);
+    thisSplash.dom.rightButton = thisSplash.dom.wrapper.querySelector(select.splashComponent.splashButtonRight);
   }
 }
 

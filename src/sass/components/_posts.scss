@@ -16,10 +16,10 @@
   &--active {
     display: block;
     margin-left: 20px;
+  }
 
-    &:first-child {
-      margin-left: 0;
-    }
+  &--margin-0 {
+    margin-left: 0;
   }
 }
 
