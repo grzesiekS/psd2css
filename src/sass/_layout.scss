@@ -6,10 +6,6 @@
 .flexbox {
   display: flex;
 
-  &--center {
-    justify-content: center;
-  }
-
   .col {
     flex: auto 1;
 
@@ -22,5 +18,10 @@
 @media (max-width: 950px) {
   .flexbox {
     flex-direction: column;
+
+    &--center {
+      flex-grow: 1;
+      align-items: center;
+    }
   }
 }

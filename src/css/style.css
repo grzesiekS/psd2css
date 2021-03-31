@@ -173,6 +173,10 @@ template { display: none; }
 
 .posts { position: relative; padding: 60px 0; }
 
+.posts .wp-block-image { width: 50px; height: 50px; }
+
+.posts .wp-block-image img { object-fit: contain; }
+
 .posts__container { margin: 0 70px; }
 
 .posts__element { max-width: 320px; display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
