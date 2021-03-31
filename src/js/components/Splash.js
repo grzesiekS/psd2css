@@ -14,11 +14,11 @@ class Splash {
     thisSplash.sliderCurrentPage = 0;
 
     thisSplash.addActiveClassToPosts(
-      thisSplash.getPosts(thisSplash.dom.splashSliderElements)
+      thisSplash.getActivePosts(thisSplash.dom.splashSliderElements)
     );
 
     thisSplash.addMarginClassToFirstPost(
-      thisSplash.getPosts(thisSplash.dom.splashSliderElements)
+      thisSplash.getActivePosts(thisSplash.dom.splashSliderElements)
     );
 
   }
@@ -34,12 +34,18 @@ class Splash {
         );
 
         this.addActiveClassToPosts(
-          this.getPosts(this.dom.splashSliderElements)
+          this.getActivePosts(this.dom.splashSliderElements)
         );
         
-        this.addMarginClassToFirstPost(
-          this.getPosts(this.dom.splashSliderElements)
+        this.removeMarginClassFromAllPosts(
+          this.getAllPosts(this.dom.splashSliderElements)
         );
+
+        this.addMarginClassToFirstPost(
+          this.getActivePosts(this.dom.splashSliderElements)
+        );
+
+        this.sliderCurrentPage = 0;
       }
     });
   }
@@ -94,13 +100,13 @@ class Splash {
 
   handleButtonActiveClassAdd() {
     const thisSplash = this;
-    const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+    const newActivePosts = thisSplash.getActivePosts(thisSplash.dom.splashSliderElements);
 
     thisSplash.addActiveClassToPosts(newActivePosts);
     thisSplash.addMarginClassToFirstPost(newActivePosts);
   }
 
-  getPosts(posts) {
+  getActivePosts(posts) {
     const thisSplash = this;
     return Array.from(posts)
       .slice(thisSplash.sliderCurrentPage*thisSplash.sliderPostsInPage, (thisSplash.sliderCurrentPage + 1)*thisSplash.sliderPostsInPage);
@@ -124,11 +130,17 @@ class Splash {
 
   removeMarginClassFromFirstPost(postsList) {
     if (postsList.length > 0) postsList[0].classList.remove(select.splashComponent.marginClassSlider);
-  
   }
 
   addMarginClassToFirstPost(postsList) {
     if (postsList.length > 0) postsList[0].classList.add(select.splashComponent.marginClassSlider);
+  }
+
+  removeMarginClassFromAllPosts(postsList) {
+    for (const post of postsList) {
+      post.classList.remove(select.splashComponent.marginClassSlider);
+    }
+     
   }
 
   getElement(element) {
