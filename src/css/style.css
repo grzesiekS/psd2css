@@ -172,7 +172,7 @@ template { display: none; }
 
 .posts { position: relative; padding: 60px 0; }
 
-.posts .wp-block-image { width: 50px; height: 50px; }
+.posts .wp-block-image { margin: 0; left: 50%; transform: translate(-50%); position: relative; width: 42px; height: 42px; }
 
 .posts .wp-block-image img { width: 100%; height: 100%; object-fit: contain; }
 
