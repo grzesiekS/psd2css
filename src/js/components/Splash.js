@@ -41,7 +41,7 @@ class Splash {
     thisSplash.dom.rightButton.addEventListener('click', event => {
       event.preventDefault();
       
-      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElementsActive);
+      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
 
       thisSplash.removeActiveClassFromPosts(currentActivePosts);
       thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
@@ -61,7 +61,19 @@ class Splash {
 
     thisSplash.dom.leftButton.addEventListener('click', event => {
       event.preventDefault();
-      console.log('test');
+      
+      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+
+      thisSplash.removeActiveClassFromPosts(currentActivePosts);
+      thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
+      
+      if(thisSplash.sliderCurrentPage > 0) thisSplash.sliderCurrentPage--;
+
+      const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+
+      thisSplash.addActiveClassToPosts(newActivePosts);
+      thisSplash.addMarginClassToFirstPost(newActivePosts);
+
     });
   }
 
@@ -89,7 +101,7 @@ class Splash {
   }
 
   addMarginClassToFirstPost(postsList) {
-    postsList[0].classList.add(select.splashComponent.marginClassSlider);
+    if (postsList.length > 0) postsList[0].classList.add(select.splashComponent.marginClassSlider);
   }
 
   getElement(element) {
@@ -98,7 +110,6 @@ class Splash {
     thisSplash.dom = {};
     thisSplash.dom.wrapper = element;
     thisSplash.dom.splashSliderElements = thisSplash.dom.wrapper.querySelectorAll(select.splashComponent.splashSliderElements);
-    thisSplash.dom.splashSliderElementsActive = thisSplash.dom.wrapper.querySelectorAll(select.splashComponent.splashSliderElementsActive);
     thisSplash.dom.leftButton = thisSplash.dom.wrapper.querySelector(select.splashComponent.splashButtonLeft);
     thisSplash.dom.rightButton = thisSplash.dom.wrapper.querySelector(select.splashComponent.splashButtonRight);
   }
