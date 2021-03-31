@@ -12,6 +12,15 @@ class Splash {
     thisSplash.handleLeftButtonAction();
 
     thisSplash.sliderCurrentPage = 0;
+
+    thisSplash.addActiveClassToPosts(
+      thisSplash.getPosts(thisSplash.dom.splashSliderElements)
+    );
+
+    thisSplash.addMarginClassToFirstPost(
+      thisSplash.getPosts(thisSplash.dom.splashSliderElements)
+    );
+
   }
 
   handleWindowInnerWidthCheck() {
@@ -19,6 +28,18 @@ class Splash {
       if(window.innerWidth > 0) {
         this.setSliderPostsInPage(window.innerWidth);
         this.setSliderPostsPageCount();
+
+        this.removeActiveClassFromPosts(
+          this.getAllPosts(this.dom.splashSliderElements)
+        );
+
+        this.addActiveClassToPosts(
+          this.getPosts(this.dom.splashSliderElements)
+        );
+        
+        this.addMarginClassToFirstPost(
+          this.getPosts(this.dom.splashSliderElements)
+        );
       }
     });
   }
@@ -41,11 +62,11 @@ class Splash {
     thisSplash.dom.rightButton.addEventListener('click', event => {
       event.preventDefault();
       
-      thisSplash.handleButtonActiveClassAdd();
+      thisSplash.handleButtonActiveClassRemove();
       
       if(thisSplash.sliderCurrentPage < thisSplash.sliderPostsPageCount - 1) thisSplash.sliderCurrentPage++;
 
-      thisSplash.handleButtonActiveClassRemove();
+      thisSplash.handleButtonActiveClassAdd();
     });
   }
 
@@ -55,23 +76,23 @@ class Splash {
     thisSplash.dom.leftButton.addEventListener('click', event => {
       event.preventDefault();
       
-      thisSplash.handleButtonActiveClassAdd();
+      thisSplash.handleButtonActiveClassRemove();
 
       if(thisSplash.sliderCurrentPage > 0) thisSplash.sliderCurrentPage--;
 
-      thisSplash.handleButtonActiveClassRemove();
+      thisSplash.handleButtonActiveClassAdd();
     });
   }
 
-  handleButtonActiveClassAdd() {
+  handleButtonActiveClassRemove() {
     const thisSplash = this;
-    const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+    const currentActivePosts = thisSplash.getAllPosts(thisSplash.dom.splashSliderElements);
 
     thisSplash.removeActiveClassFromPosts(currentActivePosts);
     thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
   }
 
-  handleButtonActiveClassRemove() {
+  handleButtonActiveClassAdd() {
     const thisSplash = this;
     const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
 
@@ -82,7 +103,11 @@ class Splash {
   getPosts(posts) {
     const thisSplash = this;
     return Array.from(posts)
-      .splice(thisSplash.sliderCurrentPage*thisSplash.sliderPostsInPage, (thisSplash.sliderCurrentPage + 1)*thisSplash.sliderPostsInPage);
+      .slice(thisSplash.sliderCurrentPage*thisSplash.sliderPostsInPage, (thisSplash.sliderCurrentPage + 1)*thisSplash.sliderPostsInPage);
+  }
+
+  getAllPosts(posts) {
+    return Array.from(posts);
   }
 
   removeActiveClassFromPosts(postsList) {
