@@ -41,18 +41,11 @@ class Splash {
     thisSplash.dom.rightButton.addEventListener('click', event => {
       event.preventDefault();
       
-      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
-
-      thisSplash.removeActiveClassFromPosts(currentActivePosts);
-      thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
+      thisSplash.handleButtonActiveClassAdd();
       
       if(thisSplash.sliderCurrentPage < thisSplash.sliderPostsPageCount - 1) thisSplash.sliderCurrentPage++;
 
-      const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
-
-      thisSplash.addActiveClassToPosts(newActivePosts);
-      thisSplash.addMarginClassToFirstPost(newActivePosts);
-
+      thisSplash.handleButtonActiveClassRemove();
     });
   }
 
@@ -62,19 +55,28 @@ class Splash {
     thisSplash.dom.leftButton.addEventListener('click', event => {
       event.preventDefault();
       
-      const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+      thisSplash.handleButtonActiveClassAdd();
 
-      thisSplash.removeActiveClassFromPosts(currentActivePosts);
-      thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
-      
       if(thisSplash.sliderCurrentPage > 0) thisSplash.sliderCurrentPage--;
 
-      const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
-
-      thisSplash.addActiveClassToPosts(newActivePosts);
-      thisSplash.addMarginClassToFirstPost(newActivePosts);
-
+      thisSplash.handleButtonActiveClassRemove();
     });
+  }
+
+  handleButtonActiveClassAdd() {
+    const thisSplash = this;
+    const currentActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+
+    thisSplash.removeActiveClassFromPosts(currentActivePosts);
+    thisSplash.removeMarginClassFromFirstPost(currentActivePosts);
+  }
+
+  handleButtonActiveClassRemove() {
+    const thisSplash = this;
+    const newActivePosts = thisSplash.getPosts(thisSplash.dom.splashSliderElements);
+
+    thisSplash.addActiveClassToPosts(newActivePosts);
+    thisSplash.addMarginClassToFirstPost(newActivePosts);
   }
 
   getPosts(posts) {
