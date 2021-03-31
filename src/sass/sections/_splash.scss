@@ -16,6 +16,33 @@
   }
 }
 
+.spalsh__button {
+  &--left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+
+    svg {
+      position: relative;
+      right: 2px;
+    }
+  }
+  
+  &--right {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+
+    svg {
+      position: relative;
+      left: 2px;
+    }
+  }
+}
+
+
 @media (max-width: 950px) {
   .splash {
     .slider__container {

@@ -122,6 +122,8 @@ template { display: none; }
 
 .flexbox .col--3 { flex: 33% 1; }
 
+@media (max-width: 950px) { .flexbox { flex-direction: column; } }
+
 .logo { display: inline-block; position: relative; margin: 10px; }
 
 .logo__element { display: inline-block; position: relative; font-size: 28px; font-weight: 800; color: #28A9E0; }
@@ -158,27 +160,30 @@ template { display: none; }
 
 .title--white { color: #fff; }
 
-.title--subtitle { font-size: 30px; line-height: 30px; margin-top: 36px; }
+.title--subtitle { font-size: 30px; line-height: 30px; margin: 36px 0 24px 0; }
 
 .description { text-align: center; font-weight: 300; font-size: 20px; line-height: 32px; margin: 0; }
 
 .description--white { color: #fff; }
 
-.slider { position: relative; padding: 60px 0; }
+.posts { position: relative; padding: 60px 0; }
 
-.slider__container { margin: 0 70px; }
+.posts__container { margin: 0 70px; }
 
-.slider__element { display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
+.posts__element { display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
 
-.slider__element--active { display: block; margin-right: 20px; }
+.posts__element--active { display: block; margin-right: 20px; }
 
-.slider__element--active:last-child { margin-right: 0; }
+.posts__element--active:last-child { margin-right: 0; }
 
-.slider__title { margin: 20px 0 18px 0; font-weight: 300; font-size: 20px; line-height: 24px; }
+.posts__title { margin: 20px 0 18px 0; font-weight: 300; font-size: 20px; line-height: 24px; }
 
-.slider__desc { margin: 0 0 18px 0; font-weight: 300; font-size: 15px; line-height: 24px; color: #808080; }
+.posts__desc { margin: 0 0 18px 0; font-weight: 300; font-size: 15px; line-height: 24px; color: #808080; }
 
-.slider__icon { font-size: 42px; color: #BABFC6; }
+.posts__icon { font-size: 42px; color: #BABFC6; }
+
+@media (max-width: 950px) { .posts__element { margin-right: 0; margin-bottom: 20px; }
+  .posts__element:last-child { margin-right: 0; margin-bottom: 0; } }
 
 .mainHeader { padding: 32px 0; }
 
@@ -190,4 +195,10 @@ template { display: none; }
 
 .splash::after { content: ''; position: absolute; height: 32px; width: 32px; border-radius: 25px; background-color: #FF3859; bottom: -16px; left: 50%; transform: translate(-50%); }
 
-.mainFooter { padding: 60px 0; }
+@media (max-width: 950px) { .splash .slider__container { margin: 0 45px; } }
+
+.mainFooter { padding: 50px 0 12px 0; background: #F1F6FC; }
+
+.mainFooter .slider { padding-top: 0; }
+
+@media (max-width: 950px) { .mainFooter .slider__container { margin: 0 20px; } }
