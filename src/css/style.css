@@ -121,13 +121,12 @@ template { display: none; }
 
 .flexbox { display: flex; }
 
-.flexbox--center { justify-content: center; }
-
 .flexbox .col { flex: auto 1; }
 
 .flexbox .col--3 { flex: 33% 1; }
 
-@media (max-width: 950px) { .flexbox { flex-direction: column; } }
+@media (max-width: 950px) { .flexbox { flex-direction: column; }
+  .flexbox--center { flex-grow: 1; align-items: center; } }
 
 .logo { display: inline-block; position: relative; margin: 10px; }
 
@@ -175,11 +174,11 @@ template { display: none; }
 
 .posts .wp-block-image { width: 50px; height: 50px; }
 
-.posts .wp-block-image img { object-fit: contain; }
+.posts .wp-block-image img { width: 100%; height: 100%; object-fit: contain; }
 
 .posts__container { margin: 0 70px; }
 
-.posts__element { max-width: 320px; display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
+.posts__element { width: 320px; display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
 
 .posts__element--active { display: block; margin-left: 20px; animation: appearIn 1s ease-in; }
 
