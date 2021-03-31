@@ -6,6 +6,10 @@
 .flexbox {
   display: flex;
 
+  &--center {
+    justify-content: center;
+  }
+
   .col {
     flex: auto 1;
 
