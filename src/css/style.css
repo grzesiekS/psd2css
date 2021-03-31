@@ -121,12 +121,14 @@ template { display: none; }
 
 .flexbox { display: flex; }
 
+.flexbox--center { justify-content: space-around; }
+
 .flexbox .col { flex: auto 1; }
 
-.flexbox .col--3 { flex: 33% 1; }
+.flexbox .col--3 { flex: 33% 0; }
 
 @media (max-width: 950px) { .flexbox { flex-direction: column; }
-  .flexbox--center { flex-grow: 1; align-items: center; } }
+  .flexbox--center { align-items: center; } }
 
 .logo { display: inline-block; position: relative; margin: 10px; }
 

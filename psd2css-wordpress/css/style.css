@@ -119,15 +119,16 @@ template { display: none; }
 
 .container { max-width: 1120px; margin: 0 auto; }
 
-.flexbox { display: flex; }
+.flexbox { display: -ms-flexbox; display: flex; }
 
-.flexbox--center { justify-content: center; }
+.flexbox--center { -ms-flex-pack: distribute; justify-content: space-around; }
 
-.flexbox .col { flex: auto 1; }
+.flexbox .col { -ms-flex: auto 1; flex: auto 1; }
 
-.flexbox .col--3 { flex: 33% 1; }
+.flexbox .col--3 { -ms-flex: 33% 0; flex: 33% 0; }
 
-@media (max-width: 950px) { .flexbox { flex-direction: column; } }
+@media (max-width: 950px) { .flexbox { -ms-flex-direction: column; flex-direction: column; }
+  .flexbox--center { -ms-flex-align: center; align-items: center; } }
 
 .logo { display: inline-block; position: relative; margin: 10px; }
 
@@ -143,11 +144,11 @@ template { display: none; }
 
 .logo__polygon { display: inline-block; position: relative; }
 
-.logo__polygon::before { content: ''; top: -15px; position: absolute; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+.logo__polygon::before { content: ''; top: -15px; position: absolute; height: 10px; width: 20px; -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
 
-.logo__polygon::after { content: ''; top: 15px; left: 50%; transform: translate(-50%); position: absolute; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+.logo__polygon::after { content: ''; top: 15px; left: 50%; transform: translate(-50%); position: absolute; height: 10px; width: 20px; -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
 
-.logo__polygon_element { position: relative; top: 50%; transform: translateY(-50%); display: inline-block; height: 10px; width: 20px; clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
+.logo__polygon_element { position: relative; top: 50%; transform: translateY(-50%); display: inline-block; height: 10px; width: 20px; -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); background: #215398; }
 
 .button { background-color: transparent; border: none; font-size: 24px; display: inline-block; padding: 0; border-radius: 25px; transition: background-color 1s; }
 
@@ -173,9 +174,13 @@ template { display: none; }
 
 .posts { position: relative; padding: 60px 0; }
 
+.posts .wp-block-image { margin: 0; left: 50%; transform: translate(-50%); position: relative; width: 42px; height: 42px; }
+
+.posts .wp-block-image img { width: 100%; height: 100%; -o-object-fit: contain; object-fit: contain; }
+
 .posts__container { margin: 0 70px; }
 
-.posts__element { max-width: 320px; display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
+.posts__element { width: 320px; display: none; padding: 15px 30px 30px; text-align: center; background-color: #fff; }
 
 .posts__element--active { display: block; margin-left: 20px; animation: appearIn 1s ease-in; }
 

@@ -18,7 +18,6 @@
             <div class="col--3 posts__element posts__element--active">
               <h3 class="posts__title"><?php the_title(); ?></h3>
               <?php the_content(); ?>
-              <i class="fab fa-wordpress posts__icon"></i>
             </div>
 
           <?php endwhile; ?>
